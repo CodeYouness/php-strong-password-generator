@@ -3,11 +3,13 @@ include_once __DIR__ . "/users.php";
 session_start();
 $user = [];
 $login = 'firstlogin';
-var_dump($user);
+var_dump($login,);
 
 if (isset($_GET['username']) && isset($_GET['password'])) {
     $_SESSION['username'] = $_GET['username'];
     $_SESSION['password'] = $_GET['password'];
+} else {
+    session_unset();
 }
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
@@ -54,9 +56,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 </p>
             </div>
         <?php header("refresh:5;url=index.php");
-        } else { ?>
+        } elseif (!$login) { ?>
             <div>
-                <p class="text-danger">
+                <p class="text-danger ps-5">
                     wrong username or password
                 </p>
             </div>
