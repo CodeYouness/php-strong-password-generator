@@ -3,7 +3,6 @@ include_once __DIR__ . "/users.php";
 session_start();
 $user = [];
 $login = 'firstlogin';
-var_dump($login,);
 
 if (isset($_GET['username']) && isset($_GET['password'])) {
     $_SESSION['username'] = $_GET['username'];
@@ -52,7 +51,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
         } elseif ($login) { ?>
             <div>
                 <p class="text-success">
-                    succesfull login
+                    succesfull login, you'll be redirected in 5 seconds...
                 </p>
             </div>
         <?php header("refresh:5;url=index.php");
